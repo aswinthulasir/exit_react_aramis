@@ -19,11 +19,11 @@ export default function ButtonAppBar() {
   >
         <Toolbar sx={{ display: "flex", alignItems: "center" }}>
         <Box sx={{ padding: "20px", display: "flex", alignItems: "center" }}>
-        <img 
+        {/* <img 
           src="https://aramis.ai/wp-content/uploads/2021/09/logo.svg" 
           alt="Aramis Logo" 
           style={{ height: "40px", width: "auto" }} // Adjust height & maintain aspect ratio
-        />
+        /> */}
       </Box>
           {/* <IconButton
             size="large"
@@ -45,7 +45,7 @@ export default function ButtonAppBar() {
     fontSize:"24px"
   }}
 >
-  essentials
+  Aramis Essentials
 </Typography>
           
         </Toolbar>
