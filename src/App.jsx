@@ -4,6 +4,7 @@ import { LocalizationProvider, TimePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
 import duration from "dayjs/plugin/duration";
+import ButtonAppBar from "./components/AppBar";
 
 dayjs.extend(duration);
 
@@ -55,6 +56,8 @@ function App() {
   };
 
   return (
+    <>
+    <ButtonAppBar></ButtonAppBar>
     <div style={{ padding: "30px", maxWidth: "500px", margin: "auto" }}>
       <Typography variant="h5" gutterBottom style={{color:'#00a152'}}>Calculate Your Daily Aramis Exit Time</Typography>
       
@@ -122,6 +125,7 @@ function App() {
         </>
       )}
     </div>
+    </>
   );
 }
 
