@@ -11,6 +11,7 @@ function App() {
   const [checkInTime, setCheckInTime] = useState(null);
   const [intervals, setIntervals] = useState([]);
   const [finalExitTime, setFinalExitTime] = useState(null);
+  const [overtime, setOvertime] = useState(0);
 
   const handleCheckIn = () => {
     if (!checkInTime) {
@@ -28,6 +29,11 @@ function App() {
     setIntervals(updatedIntervals);
   };
 
+  const handleOvertimeChange = (event) => {
+    const minutes = Math.min(60, Math.max(0, parseInt(event.target.value, 10) || 0));
+    setOvertime(minutes);
+  };
+
   const calculateExitTime = () => {
     if (!checkInTime) {
       setFinalExitTime("No check-in recorded");
@@ -42,7 +48,7 @@ function App() {
       }
     });
 
-    const requiredMinutes = 8.5 * 60 + totalIntervalMinutes;
+    const requiredMinutes = 8.5 * 60 + totalIntervalMinutes - overtime;
     const adjustedExitTime = checkInTime.add(requiredMinutes, "minute");
     
     setFinalExitTime(adjustedExitTime.format("hh:mm A"));
@@ -97,6 +103,15 @@ function App() {
           <Button variant="outlined" onClick={handleAddInterval} style={{ marginTop: "10px" }}>
             Add Interval
           </Button>
+
+          <TextField
+            label="Overtime (in minutes, max 60)"
+            type="number"
+            value={overtime}
+            onChange={handleOvertimeChange}
+            fullWidth
+            margin="normal"
+          />
 
           <Button variant="contained" color="secondary" onClick={calculateExitTime} style={{ marginTop: "20px", display: "block" }}>
             Calculate Final Exit Time
