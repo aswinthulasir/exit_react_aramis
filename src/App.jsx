@@ -55,11 +55,12 @@ function App() {
   };
 
   return (
-    <div style={{ padding: "20px", maxWidth: "500px", margin: "auto" }}>
-      <Typography variant="h5" gutterBottom>Exit Time Calculator</Typography>
+    <div style={{ padding: "30px", maxWidth: "500px", margin: "auto" }}>
+      <Typography variant="h5" gutterBottom style={{color:'#00a152'}}>Calculate Your Daily Aramis Exit Time</Typography>
       
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <TimePicker
+        
           label="Check-In Time"
           value={checkInTime}
           onChange={setCheckInTime}
@@ -67,7 +68,7 @@ function App() {
         />
       </LocalizationProvider>
 
-      <Button variant="contained" color="primary" onClick={handleCheckIn} style={{ marginTop: "10px" }} disabled={!!checkInTime}>
+      <Button variant="contained" sx={{ backgroundColor: "#00e676", "&:hover": { backgroundColor: "#33eb91" } }} onClick={handleCheckIn} style={{ marginTop: "10px" }} disabled={!!checkInTime}>
         Check In
       </Button>
 
@@ -100,7 +101,7 @@ function App() {
             </Grid>
           ))}
 
-          <Button variant="outlined" onClick={handleAddInterval} style={{ marginTop: "10px" }}>
+          <Button  sx={{ backgroundColor: "#00a152", "&:hover": { backgroundColor: "#33eb91" } }} onClick={handleAddInterval} style={{ marginTop: "10px", color:'white', padding:'8px 25px' }}>
             Add Interval
           </Button>
 
@@ -113,7 +114,7 @@ function App() {
             margin="normal"
           />
 
-          <Button variant="contained" color="secondary" onClick={calculateExitTime} style={{ marginTop: "20px", display: "block" }}>
+          <Button variant="contained" sx={{ backgroundColor: "#00a152", "&:hover": { backgroundColor: "#33eb91" } }} onClick={calculateExitTime} style={{ marginTop: "20px", display: "block", padding:'8px auto' }}>
             Calculate Final Exit Time
           </Button>
 
